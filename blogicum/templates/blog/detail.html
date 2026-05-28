@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Публикация {{ post.id }}{% endblock %}
+
+{% block content %}
+  <article class="post">
+    <h1>Публикация {{ post.id }}</h1>
+    <ul class="post-meta">
+      <li>Место: {{ post.location }}</li>
+      <li>Дата: {{ post.date }}</li>
+      <li>
+        Категория:
+        <a href="{% url 'blog:category_posts' post.category %}">
+          {{ post.category }}
+        </a>
+      </li>
+    </ul>
+    <p>{{ post.text|linebreaksbr }}</p>
+  </article>
+{% endblock %}
